@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>API</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <style>
+            .galeria {
+                margin: 3px;
+                border: 1px solid #E6E6E6;
+                float:left;
+                width:200
+            }
+            body {
+                background-color: #ecf0f1;
+            }
+            
+        </style>
+       
+        <script>
+            
+            function buscarImagem(img){
+
+                var caminho;
+
+                if(img === 'normal'){
+
+                    caminho = "https://picsum.photos/200/300";
+
+                }else if (img === 'desfocada'){
+
+                    caminho = "https://picsum.photos/200/300/?blur";
+
+                }else if (img === 'estatica'){
+
+                    caminho = "https://picsum.photos/200/300?grayscale";
+                }
+
+                fetch(caminho)
+                        .then(function(response){
+                            console.log("chegou");
+                            var localImagem = document.getElementById("container");
+
+                            var card = document.createElement("div");
+                            card.setAttribute("class", "galeria");
+                            var elImagem = document.createElement("img");
+                            elImagem.setAttribute("src", response.url);;
+                            elImagem.setAttribute("width", "200");
+                            elImagem.setAttribute("height","300");
+                            elImagem.setAttribute("alt", "imagem aleatória");
+
+                            card.appendChild(elImagem);
+                            localImagem.appendChild(card);
+                        })
+                        
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Imagens Aleatórias</h1>
+        <p></p>
+        <button type="button" class="btn btn-primary" onclick="buscarImagem('normal');">Qualquer</button>
+        <button type="button" class="btn btn-primary" onclick="buscarImagem('desfocada');">Desfocada</button>
+        <button type="button" class="btn btn-primary" onclick="buscarImagem('estatica');">Cinza</button>
+        <hr></hr>
+        <div id="container"></div>
+        <hr></hr>
+        
+    </body>
+</html>
