@@ -9,10 +9,20 @@
                 margin: 3px;
                 border: 1px solid #E6E6E6;
                 float:left;
-                width:200
+                width:200;
+                
             }
             body {
                 background-color: #ecf0f1;
+            }
+            #inicio{
+                /*margin: 10px;*/
+                background-color:rgba(189, 195, 199,1.0);
+                padding: 30px;
+                border: 1px solid #E6E6E6;
+                
+               /* padding: 50px; */
+
             }
             
         </style>
@@ -57,7 +67,10 @@
         </script>
     </head>
     <body>
-        <h1>Imagens Aleatórias</h1>
+        <div id="inicio">
+            <h1>Imagens Aleatórias</h1>
+        </div>
+        
         <p></p>
         <button type="button" class="btn btn-primary" onclick="buscarImagem('normal');">Qualquer</button>
         <button type="button" class="btn btn-primary" onclick="buscarImagem('desfocada');">Desfocada</button>
